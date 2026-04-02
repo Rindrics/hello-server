@@ -1,8 +1,10 @@
 SOURCES = $(wildcard *.go) go.mod
 CONTAINER_REPOSITORY = docker.example.com/hello-server
+GOOS=linux
+GOARCH=arm64
 
 hello-server: $(SOURCES)
-	 CGO_ENABLED=0 go build -trimpath -o $@
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=0 go build -trimpath -o $@
 
 .PHONY: image
 image: hello-server
