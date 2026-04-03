@@ -1,4 +1,4 @@
-function(tag)
+function(tag, message)
 
   {
     apiVersion: 'apps/v1',
@@ -64,6 +64,10 @@ function(tag)
                 {
                   name: 'GOMAXPROCS',
                   value: '1',
+                },
+                {
+                  name: 'MESSAGE',
+                  value: message,
                 },
               ],
             },
